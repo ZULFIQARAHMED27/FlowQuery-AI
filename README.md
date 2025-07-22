@@ -38,6 +38,14 @@ pip install streamlit langchain langchain-community faiss-cpu sentence-transform
 ollama pull mistral
 ```
 
+# NOTE : Install all dependencies
+pip install -r requirements.txt
+
+# Install Ollama separately (not available via pip)
+# Download from: https://ollama.ai
+# Then pull the model:
+ollama pull mistral
+
 ## Usage
 
 1. **Start the application**
