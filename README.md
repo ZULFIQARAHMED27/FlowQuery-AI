@@ -62,6 +62,18 @@ streamlit run streamlit_app.py
    - **Main Interface**: Query indexed documents with AI-generated answers
    - **Quick Q&A**: Direct questioning without permanent indexing
    - Adjust "Top Results" slider to control context size
+  
+## 📄 Sample Test Documents
+
+The [`SAMPLES_FLOWQUERY`](./SAMPLES_FLOWQUERY) folder contains example documents in multiple formats that you can use to test the FlowQuery app:
+
+- 📄 PDF (`.pdf`)
+- 📃 Text (`.txt`)
+- 🧾 JSON (`.json`)
+- 📝 Word Document (`.docx`)
+
+These samples are provided to help you quickly evaluate and validate the document processing and retrieval features of FlowQuery.
+
 
 ## Technical Details
 
