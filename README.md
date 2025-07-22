@@ -1,100 +1,84 @@
-# Document Q&A Bot
+# 🔥 FlowQuery - AI Document Assistant
 
-A lightweight document question-answering system using vector embeddings and semantic search.
+An intelligent document Q&A system that combines semantic search with LLM-powered answer generation using Ollama.
 
-## Overview
+## Features
 
-This system allows you to:
+### 🔍 Semantic Search
+- Upload PDF, TXT, DOCX, or JSON documents
+- Advanced document chunking and embedding
+- FAISS vector database for fast similarity search
+- Retrieve most relevant document sections
 
-1. Ingest documents into a vector database (FAISS)
-2. Query the documents using natural language 
-3. Retrieve the most semantically relevant document chunks
-4. (Optional) Generate coherent answers using a local LLM
-
-## Project Structure
-
-```
-├── app.py                 # Main application with CLI
-├── embedding_utils.py     # Utilities for embedding operations
-├── ingest.py              # Document ingestion and processing
-├── llm_integration.py     # Optional local LLM integration 
-├── rag.py                 # Retrieval Augmented Generation components
-├── requirements.txt       # Project dependencies
-└── vectorstore_utils.py   # Vector store management utilities
-└── streamlit_app.py       # Streamlit UI
-```
+### 🤖 AI-Powered Q&A
+- **LLM Integration**: Uses Ollama with Mistral model for intelligent answers
+- **RAG System**: Retrieval-Augmented Generation for accurate responses
+- **Context-Aware**: Answers based on your uploaded documents
+- **Dual Interface**: 
+  - Full indexing with persistent storage
+  - Quick Q&A without indexing
 
 ## Installation
 
-1. Create a virtual environment:
-   ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/FlowQuery_App.git
+cd FlowQuery_App
+```
 
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+2. **Install Python dependencies**
+```bash
+pip install streamlit langchain langchain-community faiss-cpu sentence-transformers numpy PyPDF2
+```
+
+3. **Install and setup Ollama**
+```bash
+# Install Ollama from https://ollama.ai
+# Pull the Mistral model
+ollama pull mistral
+```
 
 ## Usage
 
-### 1. Data Preparation
-
-Prepare your documents as a JSON file with the following structure:
-```json
-[
-  {
-    "page_content": "Your document text here...",
-    "metadata": {"source": "optional-source-info.txt", "page": 1}
-  },
-  {
-    "page_content": "More document text...",
-    "metadata": {"source": "optional-source-info.txt", "page": 2}
-  }
-]
+1. **Start the application**
+```bash
+streamlit run streamlit_app.py
 ```
 
-### 2. Ingest Documents
+2. **Upload & Index Documents**
+   - Use the sidebar to upload documents
+   - Click "🚀 Ingest & Index" to create searchable database
+   - Documents are stored as FAISS indexes
 
-Process your documents into a vector database:
-```
-python ingest.py --input your_documents.json --output your_index_name
-```
+3. **Ask Questions**
+   - **Main Interface**: Query indexed documents with AI-generated answers
+   - **Quick Q&A**: Direct questioning without permanent indexing
+   - Adjust "Top Results" slider to control context size
 
-### 3. Query Documents
+## Technical Details
 
-Start the interactive query interface:
-```
-python app.py --index your_index_name
-```
+- **Embeddings**: `all-MiniLM-L6-v2` for semantic understanding
+- **Vector Store**: FAISS for efficient similarity search  
+- **LLM**: Ollama Mistral for answer generation
+- **Framework**: Streamlit for the web interface
+- **Document Processing**: PyPDF2, custom text splitters
 
-## Extending with LLM Integration
+## Requirements
 
-The system is designed to work with or without a local LLM for answer generation:
+- Python 3.8+
+- Ollama with Mistral model
+- 4GB+ RAM recommended
+- GPU optional (CPU works fine)
 
-1. By default, it works in "retrieval-only" mode, showing relevant document chunks
-2. To enable answer generation, modify `rag.py` to use the LLM integration
+## Previous Version
 
-Example LLM integration with Ollama:
-```python
-from llm_integration import OllamaLLM
+The previous version supported semantic search only. This version adds:
+- ✅ LLM integration with Ollama
+- ✅ AI-generated answers
+- ✅ RAG (Retrieval-Augmented Generation)
+- ✅ Enhanced error handling
+- ✅ Dual Q&A interfaces
 
-# In app.py:
-llm = OllamaLLM(model_name="mistral")
-rag_system = RAGSystem(args.index, llm)
-```
+## Contributing
 
-## Customization
-
-- **Change embedding model**: Edit the model name parameter in the relevant functions
-- **Adjust retrieval parameters**: Modify the `k` parameter in retrieval functions
-- **Add document processing**: Expand `ingest.py` with custom document loaders
-
-## Performance Considerations
-
-- The default embedding model (all-MiniLM-L6-v2) offers a good balance of speed and quality
-- For production use with larger document sets, consider:
-  - Using a database with HNSW indexes for faster retrieval
-  - Implementing filtering and metadata search
-  - Adding document re-ranking
+Feel free to open issues and pull requests for improvements!
