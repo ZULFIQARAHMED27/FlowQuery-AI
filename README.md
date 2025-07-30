@@ -102,3 +102,24 @@ The previous version supported semantic search only. This version adds:
 ## Contributing
 
 Feel free to open issues and pull requests for improvements!
+
+## 📸 Screenshots
+
+### Home Page
+![Home Page](https://drive.google.com/uc?id=1BVNzj8865ooUfc5C2eJNwtFXX58EudMO)
+
+### Document Upload, Ingest & Index
+![Document Upload](https://drive.google.com/uc?id=1zq97K6X0wyhf8ZMD5NbYvdRNa1v-PwhJ)
+
+### Query Example
+![Query Example](https://drive.google.com/uc?id=1PZkU2ZgMJvXKO3fpHrkWfoUmn1lY1hWR)
+
+### Result Display
+![Result Display](https://drive.google.com/uc?id=185v7OaSxMnDAWZ6O24HvUg1LuAYH9_8j)
+
+### Quick QA without Indexing
+![Quick QA](https://drive.google.com/uc?id=15RhyHhf8t2om1EGE62f4oRAFI4q2Cfnb)
+
+### End Result
+![End Result](https://drive.google.com/uc?id=1nrxMnLE541CqJieYyvHJ0wclWDC84Ksp)
+
